@@ -1,0 +1,86 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+#analogContainer {
+    width: 300px;
+    height: 300px;
+    background-color: lightcoral;
+    padding: 50px;
+}
+#clockFace {
+    background-color: khaki;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 5px solid black;
+    border-radius: 100%;
+}
+.faceNum {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+#rotationPoint {
+    position: absolute;
+    top: 90px;
+    left: 90px;
+    border-radius: 100%;
+    border: 5px solid black;
+}
+#num12 {
+    width: 100px;
+    top: 5px;
+    left: 45px;
+}
+#num3 {
+    width: 100px;
+    top: 85px;
+    right: -40px;    
+}
+#num9 {
+    width: 100px;
+    top: 85px;
+    left: -40px;
+}
+#num6 {
+    width: 100px;
+    bottom: 5px;
+    left: 45px;
+}
+.hand {
+    position: absolute;
+    background-color: black;
+    transform-origin: 50% 100%;
+}
+#hourHand {
+    width: 6px;
+    height: 50px;
+    top: 45px;
+    left: 92px;
+}
+#minuteHand {
+    width: 4px;
+    height: 60px;
+    top: 35px;
+    left: 93px;
+}
+#secondHand {
+    width: 2px;
+    height: 70px;
+    top: 25px;
+    left: 94px;
+    background-color: brown;
+}
+
+#digitalContainer {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 300%;
+    width: 300px;
+    background-color: lightcoral;
+    padding: 50px;
+}
