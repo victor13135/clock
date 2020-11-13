@@ -1,4 +1,3 @@
-// DOM
 let digitalClock = document.getElementById("digitalClockFace");
 let hourHand = document.getElementById("hourHand");
 let minuteHand = document.getElementById("minuteHand");
@@ -10,8 +9,6 @@ let binarySecondDivs = document.querySelectorAll(".second");
 
 let allBinaryDigitDivs = [binaryHourDivs, binaryMinuteDivs, binarySecondDivs];
 
-
-// functions
 function toBinary (decNum, binDigits) {
     let binaryResult = "";
     let remainder;
@@ -30,14 +27,10 @@ function toBinary (decNum, binDigits) {
     return temp;
 }
 
-// global variables
 let hours, minutes, seconds;
 let binHours, binMinutes, binSeconds;
 let hourDegrees, minuteDegrees, secondDegrees;
 
-
-
-// main()
 setInterval( () => {
     let time = new Date();
     hours = time.getHours();
@@ -77,5 +70,4 @@ setInterval( () => {
             }
         }
     }
-   
 }, 1000);
