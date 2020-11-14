@@ -1,0 +1,15 @@
+.diceFace {
+    width: 50px;
+    margin: 8px auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 7px;
+    row-gap: 7px;
+}
+.dot {
+    background-color: lightgray;
+    border: rgb(16, 16, 16) 0.5px solid;
+    border-radius: 100%;
+    width: 12px;
+    height: 12px;
+}

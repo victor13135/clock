@@ -76,18 +76,20 @@
     left: 94px;
     background-color: brown;
 }
-#digitalContainer, #binaryContainer {
+
+#digitalContainer, #binaryContainer, #hexContainer {
     margin: auto;
     text-align: center;
     font-size: 300%;
     width: 300px;
-    background-color: lightcoral;
+    background-color: salmon;
 }
 #binaryContainer {
     display: flex;
     justify-content: center;
     height: 180px;
     padding: 40px 0px;
+    background-color: lightcoral;
 }
 #binaryHours, #binaryMinutes, #binarySeconds {
     display: flex;
@@ -106,10 +108,51 @@
     text-align: center;
     margin: 2px;
 }
-
 #placeholder {
     border: none;
     background-color: inherit;
+}
+
+#dominoContainer {
+    width: 300px;
+    margin: auto;
+    background-color: lightcoral;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 30px 0;
+}
+.dominoFace {
+    width: 70px;
+    margin: 0 10px;
+    background-color: black;
+    border: grey 1px solid;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+.diceFace {
+    width: 50px;
+    margin: 8px auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 7px;
+    row-gap: 7px;
+}
+.separator {
+    width: 50px;
+    background-color: rgb(32, 32, 32);
+    height: 1px;
+    margin: 1px auto;
+}
+.dot {
+    background-color: black;
+    border: rgb(16, 16, 16) 0.5px solid;
+    border-radius: 100%;
+    width: 12px;
+    height: 12px;
 }
 
 @media only screen and (max-width: 500px) {

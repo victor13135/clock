@@ -1,4 +1,5 @@
 let digitalClock = document.getElementById("digitalClockFace");
+
 let hourHand = document.getElementById("hourHand");
 let minuteHand = document.getElementById("minuteHand");
 let secondHand = document.getElementById("secondHand");
@@ -7,7 +8,18 @@ let binaryHourDivs = document.querySelectorAll(".hour");
 let binaryMinuteDivs = document.querySelectorAll(".minute");
 let binarySecondDivs = document.querySelectorAll(".second");
 
+let hexClock = document.getElementById("hexClockFace");
+
+let dominoHoursUp = document.getElementById("dominoHoursUp");
+let dominoHoursDown = document.getElementById("dominoHoursDown");
+let dominoMinutesDigitOneUp = document.getElementById("dominoMinutesDigitOneUp");
+let dominoMinutesDigitOneDown = document.getElementById("dominoMinutesDigitOneDown");
+let dominoMinutesDigitTwoUp = document.getElementById("dominoMinutesDigitTwoUp");
+let dominoMinutesDigitTwoDown = document.getElementById("dominoMinutesDigitTwoDown");
+
 let allBinaryDigitDivs = [binaryHourDivs, binaryMinuteDivs, binarySecondDivs];
+
+let currentMinutes = -1;
 
 function toBinary (decNum, binDigits) {
     let binaryResult = "";
@@ -25,6 +37,61 @@ function toBinary (decNum, binDigits) {
         temp += binaryResult[i];
     }
     return temp;
+}
+function toHex (decNum) {
+    let firstDigit = 0, secondDigit = 0;
+    firstDigit = String(Math.trunc(decNum/16));
+    secondDigit = String(decNum % 16);
+    switch(secondDigit) {
+        case "15":    secondDigit = "F"; break;
+        case "14":    secondDigit = "E"; break;
+        case "13":    secondDigit = "D"; break;
+        case "12":    secondDigit = "C"; break;
+        case "11":    secondDigit = "B"; break;
+        case "10":    secondDigit = "A";
+    }
+    return firstDigit+secondDigit;
+}
+function drawDiceFace (diceId, num) {
+    let dotsArray = [];
+    switch(num) {
+        case 0: break;
+        case 1: dotsArray = ["11"]; break;
+        case 2: dotsArray = ["00", "22"]; break;
+        case 3: dotsArray = ["00", "11", "22"]; break;
+        case 4: dotsArray = ["00", "02", "20", "22"]; break;
+        case 5: dotsArray = ["00", "02", "11", "20", "22"]; break;
+        case 6: dotsArray = ["00", "02", "10", "12", "20", "22"];
+    }
+    dotsArray.forEach((dot, i) => {
+        console.log(diceId);
+        diceId.querySelector(`.d${dotsArray[i]}.dot`).style.backgroundColor="white";
+    });
+}
+function resetDice () {
+    let allTheDots = document.getElementsByClassName("dot");
+    for (let item of allTheDots) {
+        item.style.backgroundColor = "black";
+    }
+}
+function updateDominoClock(hrs, mins) {
+    if(hrs>11) {
+        hrs-=12;
+    }
+    currentMinutes = mins;
+    let tensOfMinutes = Math.trunc(mins/10);
+    let singleMinutes = mins%10;
+    let hoursDigitUp = Math.floor(hrs/2);
+    let hoursDigitDown = Math.ceil(hrs/2);
+    let minutesDigitOneUp = Math.floor(tensOfMinutes/2);
+    let minutesDigitOneDown = Math.ceil(tensOfMinutes/2);
+    let minutesDigitTwoUp = Math.floor(singleMinutes/2);
+    let minutesDigitTwoDown = Math.ceil(singleMinutes/2);
+    let allTheDigits = [hoursDigitUp, hoursDigitDown, minutesDigitOneUp, minutesDigitOneDown, minutesDigitTwoUp, minutesDigitTwoDown];
+    let allTheDices = [dominoHoursUp, dominoHoursDown, dominoMinutesDigitOneUp, dominoMinutesDigitOneDown, dominoMinutesDigitTwoUp, dominoMinutesDigitTwoDown];
+    for(let i=0; i<6; i++) {
+        drawDiceFace(allTheDices[i], allTheDigits[i]);
+    }
 }
 
 let hours, minutes, seconds;
@@ -69,5 +136,10 @@ setInterval( () => {
                 allBinaryDigitDivs[i][j].style.backgroundColor = "brown";
             }
         }
+    }
+    hexClock.textContent="#"+toHex(hours)+toHex(minutes)+toHex(seconds);
+    
+    if(currentMinutes != minutes) {
+        updateDominoClock(hours, minutes);
     }
 }, 1000);
