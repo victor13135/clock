@@ -82,12 +82,12 @@
     font-size: 300%;
     width: 300px;
     background-color: lightcoral;
-    padding: 40px 0px;
 }
 #binaryContainer {
     display: flex;
     justify-content: center;
     height: 180px;
+    padding: 40px 0px;
 }
 #binaryHours, #binaryMinutes, #binarySeconds {
     display: flex;
