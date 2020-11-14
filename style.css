@@ -120,7 +120,7 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    padding: 30px 0;
+    padding: 40px 0;
 }
 .dominoFace {
     width: 70px;
@@ -149,7 +149,7 @@
 }
 .dot {
     background-color: black;
-    border: rgb(16, 16, 16) 0.5px solid;
+    border: rgb(20, 20, 20) 0.5px solid;
     border-radius: 100%;
     width: 12px;
     height: 12px;

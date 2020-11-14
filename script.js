@@ -65,7 +65,7 @@ function drawDiceFace (diceId, num) {
     }
     dotsArray.forEach((dot, i) => {
         console.log(diceId);
-        diceId.querySelector(`.d${dotsArray[i]}.dot`).style.backgroundColor="white";
+        diceId.querySelector(`.d${dotsArray[i]}.dot`).style.backgroundColor="whitesmoke";
     });
 }
 function resetDice () {
@@ -75,7 +75,7 @@ function resetDice () {
     }
 }
 function updateDominoClock(hrs, mins) {
-    if(hrs>11) {
+    if(hrs>12) {
         hrs-=12;
     }
     currentMinutes = mins;
@@ -140,6 +140,7 @@ setInterval( () => {
     hexClock.textContent="#"+toHex(hours)+toHex(minutes)+toHex(seconds);
     
     if(currentMinutes != minutes) {
+        resetDice();
         updateDominoClock(hours, minutes);
     }
 }, 1000);
