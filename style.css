@@ -213,5 +213,6 @@
     #worldClockFace {
         font-size: 100%;
         width: 220px;
+        line-height: 115%;
     }
 }
