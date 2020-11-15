@@ -120,10 +120,13 @@ function updateWorldClockFace(hrs, mins) {
     if(hrs==0) {
         hrs += 12;
     }
-    
     if(mins >=59 || mins <4) {
-        lightItUp(`o${hrs}`);
         lightItUp("oclock");
+        if(mins<4) {
+            lightItUp(`o${hrs}`);
+        } else {
+            lightItUp(`o${hrs+1}`);
+        }
     } else if (mins>=34) {
         if(hrs==12) {
             hrs -= 12;
