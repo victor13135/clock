@@ -120,7 +120,7 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    padding: 40px 0;
+    padding: 50px 0;
 }
 .dominoFace {
     width: 70px;
@@ -149,10 +149,58 @@
 }
 .dot {
     background-color: black;
-    border: rgb(20, 20, 20) 0.5px solid;
+    border: rgb(20, 20, 20) 1px solid;
     border-radius: 100%;
     width: 12px;
     height: 12px;
+}
+
+#worldClockContainer {
+    margin: auto;
+    background-color: lightcoral;
+    width: 300px;
+    text-align: center;
+    padding-bottom: 30px;
+}
+#worldClockFace {
+    margin: auto;
+    text-align: center;
+    font-family: monospace;
+    background-color: rgb(20, 20, 20);
+    border-radius: 7px;
+    border-color: whitesmoke;
+    color: rgb(48, 48, 48);
+    font-size: 125%;
+    padding: 20px;
+    width: 238px;
+    position: relative;
+}
+.pin {
+    height: 6px;
+    width: 6px;
+    border-radius: 100%;
+    background-color: whitesmoke;
+    position: absolute;
+    z-index: 5;
+}
+#p1 {
+    top: 10px;
+    left: 10px;
+}
+#p2 {
+    top: 10px;
+    right: 10px;
+}
+#p3 {
+    bottom: 10px;
+    left: 10px;
+}
+#p4 {
+    bottom: 10px;
+    right: 10px;
+}
+.backlight {
+    color: whitesmoke;
 }
 
 @media only screen and (max-width: 500px) {

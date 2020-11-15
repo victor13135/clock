@@ -93,7 +93,74 @@ function updateDominoClock(hrs, mins) {
         drawDiceFace(allTheDices[i], allTheDigits[i]);
     }
 }
-
+function resetWorldClock() {
+    let resetRange = document.getElementById("reset");
+    let allTheFields = resetRange.getElementsByClassName("backlight");
+    console.log(allTheFields);
+    if(allTheFields.length>0) {
+        let numberOfClassesToRemove = allTheFields.length;
+        console.log(numberOfClassesToRemove);
+        for (let i=numberOfClassesToRemove-1; i>=0; i--) {
+            console.log(allTheFields.length);
+            console.log(allTheFields[i].classList);
+            allTheFields[i].classList.remove("backlight");
+            //console.log(allTheFields[i].classList);
+        }
+    }
+}
+function lightItUp(spanId) {
+    if(!document.getElementById(spanId).classList.contains("backlight")) {
+        document.getElementById(spanId).classList.toggle("backlight");
+    }
+}
+function updateWorldClockFace(hrs, mins) {
+    if(hrs>12) {
+        hrs -= 12;
+    }
+    if(hrs==0) {
+        hrs += 12;
+    }
+    
+    if(mins >=59 || mins <4) {
+        lightItUp(`o${hrs}`);
+        lightItUp("oclock");
+    } else if (mins>=34) {
+        if(hrs==12) {
+            hrs -= 12;
+        }
+        lightItUp(`o${hrs+1}`);
+        lightItUp("to");
+        if (mins <39) {
+            lightItUp("twenty");
+            lightItUp("five");
+        } else if (mins >=39 && mins <44) {
+            lightItUp("twenty");
+        } else if (mins >=44 && mins <49) {
+            lightItUp("quarter");
+        } else if (mins >=49 && mins <54) {
+            lightItUp("ten");
+        } else if(mins >=54 && mins <59) {
+            lightItUp("five");
+        }
+    } else {
+        lightItUp(`o${hrs}`);
+        lightItUp("past");
+        if(mins >=4 && mins <9) {
+            lightItUp("five")
+        } else if (mins >=9 && mins <14) {
+            lightItUp("ten");
+        } else if (mins >=14 && mins <19) {
+            lightItUp("quarter");
+        } else if (mins >=19 && mins <24) {
+            lightItUp("twenty");
+        } else if (mins >=24 && mins <29) {
+            lightItUp("twenty");
+            lightItUp("five");
+        } else if (mins >=29) {
+            lightItUp("half");
+        }
+    }
+}   
 let hours, minutes, seconds;
 let binHours, binMinutes, binSeconds;
 let hourDegrees, minuteDegrees, secondDegrees;
@@ -142,5 +209,7 @@ setInterval( () => {
     if(currentMinutes != minutes) {
         resetDice();
         updateDominoClock(hours, minutes);
+        resetWorldClock();
+        updateWorldClockFace(hours, minutes);
     }
 }, 1000);
