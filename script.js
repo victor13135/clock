@@ -218,7 +218,7 @@ setInterval( () => {
         seconds = temp;
     }
     digitalClock.textContent = hours + ":" + minutes + ":" + seconds;
-    digitalClock.innerHTML += `<span id='fullDate'>, ${currentDay}, ${time.getDate()}.${currentMonth} ${time.getFullYear()}</span>`
+    digitalClock.innerHTML += `<span id='fullDate'> ${currentDay} ${time.getDate()}. ${currentMonth} ${time.getFullYear()}</span>`
 
     hourDegrees = (hours%12)/12 * 360 + (minutes/60)*30;
     minuteDegrees = minutes/60 * 360;

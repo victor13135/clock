@@ -426,7 +426,7 @@
         margin: auto;
         background-color: lightcoral;
         width: 500px;
-        height: 527px;
+        height: 500px;
         text-align: center;
         padding: 50px;
     }
@@ -467,7 +467,8 @@
     #analogContainer {
         width: 300px;
         justify-content: center;
-        padding: 40px;
+        padding: 50px;
+        height: 300px;
     }
     #binaryContainer, #hexContainer {
         width: 300px;
@@ -486,6 +487,7 @@
     #dominoContainer {
         grid-area: domino;
         width: 100%;
+        padding: 40px 0;
     }
     .dominoFace {
         width: 100px;
@@ -497,9 +499,9 @@
         flex-direction: column;
     }
     .diceFace {
-        width: 80px;
-        height: 60px;
-        margin: 16px auto;
+        width: 70px;
+        height: 70px;
+        margin: 10px auto;
         display: grid;
         grid-template-columns: auto auto auto;
         column-gap: 5px;
