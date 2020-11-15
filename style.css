@@ -3,14 +3,18 @@
     padding: 0px;
     box-sizing: border-box;
 }
+#fullDate {
+    display: none;
+}
 #analogContainer {
     margin: auto;
     width: 300px;
     height: 300px;
     background-color: lightcoral;
-    padding: 50px;
+    padding: 50px 30px;
 }
 #clockFace {
+    margin: auto;
     background-color: khaki;
     position: relative;
     width: 200px;
@@ -76,13 +80,12 @@
     left: 94px;
     background-color: brown;
 }
-
 #digitalContainer, #binaryContainer, #hexContainer {
     margin: auto;
     text-align: center;
     font-size: 300%;
     width: 300px;
-    background-color: salmon;
+    background-color: lightcoral;
 }
 #binaryContainer {
     display: flex;
@@ -204,8 +207,37 @@
 .backlight {
     color: whitesmoke;
 }
-
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 360px) {
+    #analogContainer {
+        padding: 40px 25px;
+        width: 100%;
+    }
+    #digitalContainer, #hexContainer {
+        width: 250px;
+    }
+    #dominoContainer {
+        width: 100%;
+        padding: 10px;
+        margin: 30px auto;
+    }
+    #binaryHours, #binaryMinutes, #binarySeconds {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin: 3px 0;
+        padding: 0px 32px 0px 0px;
+    }
+    .binaryDigit {
+        float: left;
+        background-color: white;
+        width: 22px;
+        height: 22px;
+    }
+    #worldClockContainer {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 650px) {
     body {
         background-color: lightcoral;
         text-align: center;
@@ -215,4 +247,277 @@
         width: 220px;
         line-height: 133%;
     }
+}
+@media only screen and (min-width: 650px) {
+    body {
+        margin: auto;
+        justify-content: center;
+        align-content: center;
+        background-color: lightcoral;
+        grid-gap: 10px;
+        background-color: navajowhite;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-areas:    'analog world'
+                                'binary digital'
+                                'binary hex'
+                                'domino domino';
+    }
+    #analogContainer {
+        grid-area: analog;
+    }
+    #digitalContainer {
+        grid-area: digital;
+        width: 100%;
+        padding: 15px 0;
+        justify-content: center;
+    }
+    #binaryContainer {
+        grid-area: binary;
+        margin: 0 auto;
+    }
+    #hexContainer {
+        grid-area: hex;
+        padding: 14px 0;
+        vertical-align: middle;
+        justify-content: center;
+    }
+    #dominoContainer {
+        grid-area: domino;
+        width: 100%;
+    }
+    .dominoFace {
+        width: 140px;
+        margin: 0 20px;
+        background-color: black;
+        border: darkgray 2px solid;
+        border-radius: 7px;
+        display: flex;
+        flex-direction: column;
+    }
+    .diceFace {
+        width: 100px;
+        height: 100px;
+        margin: 16px auto;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        column-gap: 7px;
+        row-gap: 7px;
+    }
+    .separator {
+        width: 100px;
+        background-color: rgb(32, 32, 32);
+        height: 1px;
+        margin: 1px auto;
+    }
+    .dot {
+        background-color: black;
+        border: rgb(20, 20, 20) 0.5px solid;
+        border-radius: 100%;
+        width: 20px;
+        height: 20px;
+        margin: auto;
+        justify-content: center;
+        align-content: center;
+    }
+    #worldClockContainer {
+        grid-area: world;
+        height: 300px;
+        padding: 35px 0;
+    }
+}
+@media only screen and (min-width: 800px) {
+    body {
+        margin: auto;
+        justify-content: center;
+        align-content: center;
+        background-color: lightcoral;
+        grid-gap: 20px;
+        background-color: navajowhite;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-areas:    'world world'
+                                'world world'
+                                'analog hex'
+                                'analog binary'
+                                'digital digital'
+                                'domino domino';
+    }
+    #worldClockContainer {
+        margin: auto;
+        background-color: lightcoral;
+        width: 666px;
+        height: 600px;
+        text-align: center;
+        padding: 70px;
+    }
+    #worldClockFace {
+        border: darkgrey 1px solid;
+        margin: auto;
+        text-align: center;
+        font-family: monospace;
+        background-color: rgb(20, 20, 20);
+        border-radius: 7px;
+        border-color: whitesmoke;
+        color: rgb(48, 48, 48);
+        font-size: 250%;
+        padding: 40px 40px;
+        width: 480px;
+        position: relative;
+    }
+    .pin {
+        height: 10px;
+        width: 10px;
+    }
+    #p1 {
+        top: 20px;
+        left: 20px;
+    }
+    #p2 {
+        top: 20px;
+        right: 20px;
+    }
+    #p3 {
+        bottom: 20px;
+        left: 20px;
+    }
+    #p4 {
+        bottom: 20px;
+        right: 20px;
+    }
+    #analogContainer {
+        width: 346px;
+        justify-content: center;
+    }
+    #binaryContainer, #hexContainer {
+        width: 300px;
+    }
+    #hexContainer {
+        padding: 20px;
+    }
+    #digitalContainer {
+        width: 100%;
+        font-size: 200%;
+    }
+    #fullDate {
+        display: inline;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    body {
+        padding: 20px;
+        margin: auto;
+        justify-content: center;
+        align-content: center;
+        background-color: lightcoral;
+        grid-gap: 20px;
+        background-color: navajowhite;
+        display: grid;
+        grid-template-columns: 500px auto auto;
+        grid-template-areas:    'world analog binary'
+                                'world analog binary'
+                                'world analog hex'
+                                'world domino domino'
+                                'digital domino domino'
+    }
+    #worldClockContainer {
+        margin: auto;
+        background-color: lightcoral;
+        width: 500px;
+        height: 500px;
+        text-align: center;
+        padding: 50px;
+    }
+    #worldClockFace {
+        border: darkgrey 1px solid;
+        margin: auto;
+        text-align: center;
+        font-family: monospace;
+        background-color: rgb(20, 20, 20);
+        border-radius: 10px;
+        border-color: whitesmoke;
+        color: rgb(48, 48, 48);
+        font-size: 200%;
+        padding: 40px 40px;
+        width: 400px;
+        position: relative;
+    }
+    .pin {
+        height: 10px;
+        width: 10px;
+    }
+    #p1 {
+        top: 20px;
+        left: 20px;
+    }
+    #p2 {
+        top: 20px;
+        right: 20px;
+    }
+    #p3 {
+        bottom: 20px;
+        left: 20px;
+    }
+    #p4 {
+        bottom: 20px;
+        right: 20px;
+    }
+    #analogContainer {
+        width: 300px;
+        justify-content: center;
+        padding: 40px;
+    }
+    #binaryContainer, #hexContainer {
+        width: 300px;
+    }
+    #hexContainer {
+        padding: 20px;
+    }
+    #digitalContainer {
+        width: 100%;
+        font-size: 180%;
+        padding: 30px 0;
+    }
+    #fullDate {
+        display: inline;
+    }
+    #dominoContainer {
+        grid-area: domino;
+        width: 100%;
+    }
+    .dominoFace {
+        width: 100px;
+        margin: 0 18px;
+        background-color: black;
+        border: darkgray 2px solid;
+        border-radius: 7px;
+        display: flex;
+        flex-direction: column;
+    }
+    .diceFace {
+        width: 80px;
+        height: 60px;
+        margin: 16px auto;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        column-gap: 5px;
+        row-gap: 5px;
+    }
+    .separator {
+        width: 75px;
+        background-color: rgb(32, 32, 32);
+        height: 1px;
+        margin: 1px auto;
+    }
+    .dot {
+        background-color: black;
+        border: rgb(20, 20, 20) 0.5px solid;
+        border-radius: 100%;
+        width: 16px;
+        height: 16px;
+        margin: auto;
+        justify-content: center;
+        align-content: center;
+    }   
 }

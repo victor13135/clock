@@ -21,6 +21,33 @@ let allBinaryDigitDivs = [binaryHourDivs, binaryMinuteDivs, binarySecondDivs];
 
 let currentMinutes = -1;
 
+function dayNameFromNumber (dayNum) {
+    switch(dayNum) {
+        case 0: return "Sunday"; break;
+        case 1: return "Monday"; break;
+        case 2: return "Tuesday"; break;
+        case 3: return "Wednesday"; break;
+        case 4: return "Thursday"; break;
+        case 5: return "Friday"; break;
+        case 6: return "Saturday"; break;
+    }
+}
+function monthNameFromNumber (monthName) {
+    switch(monthName) {
+        case 0: return "January"; break;
+        case 1: return "February"; break;
+        case 2: return "March"; break;
+        case 3: return "April"; break;
+        case 4: return "May"; break;
+        case 5: return "June"; break;
+        case 6: return "July"; break;
+        case 7: return "August"; break;
+        case 8: return "September"; break;
+        case 9: return "October"; break;
+        case 10: return "November"; break;
+        case 11: return "December"; break
+    }
+}
 function toBinary (decNum, binDigits) {
     let binaryResult = "";
     let remainder;
@@ -173,7 +200,10 @@ setInterval( () => {
     hours = time.getHours();
     minutes = time.getMinutes();
     seconds = time.getSeconds();
-
+    
+    let currentDay = dayNameFromNumber(time.getDay());
+    let currentMonth = monthNameFromNumber(time.getMonth());
+    
     binHours = toBinary(hours, 5);
     binMinutes = toBinary(minutes, 6);
     binSeconds = toBinary(seconds, 6);
@@ -188,6 +218,7 @@ setInterval( () => {
         seconds = temp;
     }
     digitalClock.textContent = hours + ":" + minutes + ":" + seconds;
+    digitalClock.innerHTML += `<span id='fullDate'>, ${currentDay}, ${time.getDate()}.${currentMonth} ${time.getFullYear()}</span>`
 
     hourDegrees = (hours%12)/12 * 360 + (minutes/60)*30;
     minuteDegrees = minutes/60 * 360;
