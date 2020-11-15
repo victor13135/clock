@@ -210,4 +210,8 @@
         background-color: lightcoral;
         text-align: center;
     }
+    #worldClockFace {
+        font-size: 110%;
+        width: 220px;
+    }
 }
