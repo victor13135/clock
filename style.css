@@ -250,6 +250,7 @@
 }
 @media only screen and (min-width: 650px) {
     body {
+        padding: 10px;
         margin: auto;
         justify-content: center;
         align-content: center;
@@ -328,6 +329,7 @@
 }
 @media only screen and (min-width: 800px) {
     body {
+        padding: 20px;
         margin: auto;
         justify-content: center;
         align-content: center;
@@ -406,7 +408,6 @@
 
 @media only screen and (min-width: 1200px) {
     body {
-        padding: 20px;
         margin: auto;
         justify-content: center;
         align-content: center;
