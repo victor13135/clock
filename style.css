@@ -158,7 +158,7 @@
 #worldClockContainer {
     margin: auto;
     background-color: lightcoral;
-    min-width: 300px;
+    width: 300px;
     text-align: center;
     padding-bottom: 30px;
 }
@@ -172,7 +172,7 @@
     color: rgb(48, 48, 48);
     font-size: 125%;
     padding: 20px;
-    min-width: 238px;
+    width: 238px;
     position: relative;
 }
 .pin {
