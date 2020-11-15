@@ -126,7 +126,7 @@
     width: 70px;
     margin: 0 10px;
     background-color: black;
-    border: grey 1px solid;
+    border: darkgray 1px solid;
     border-radius: 7px;
     display: flex;
     flex-direction: column;
@@ -158,11 +158,13 @@
 #worldClockContainer {
     margin: auto;
     background-color: lightcoral;
+    min-width: 250px;
     width: 300px;
     text-align: center;
     padding-bottom: 30px;
 }
 #worldClockFace {
+    border: darkgrey 1px solid;
     margin: auto;
     text-align: center;
     font-family: monospace;
@@ -170,8 +172,8 @@
     border-radius: 7px;
     border-color: whitesmoke;
     color: rgb(48, 48, 48);
-    font-size: 125%;
-    padding: 20px;
+    font-size: 120%;
+    padding: 23px 20px;
     width: 238px;
     position: relative;
 }
@@ -184,20 +186,20 @@
     z-index: 5;
 }
 #p1 {
-    top: 10px;
-    left: 10px;
+    top: 11px;
+    left: 11px;
 }
 #p2 {
-    top: 10px;
-    right: 10px;
+    top: 11px;
+    right: 11px;
 }
 #p3 {
-    bottom: 10px;
-    left: 10px;
+    bottom: 11px;
+    left: 11px;
 }
 #p4 {
-    bottom: 10px;
-    right: 10px;
+    bottom: 11px;
+    right: 11px;
 }
 .backlight {
     color: whitesmoke;
